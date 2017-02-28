@@ -1,0 +1,809 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ECMAScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。
+也就是说，ES6就是ES2015。
+虽然目前并不是所有浏览器都能兼容ES6全部特性，但越来越多的程序员在实际项目当中已经开始使用ES6了。所以就算你现在不打算使用ES6，但为了看懂别人的你也该懂点ES6的语法了…
+在我们正式讲解ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6初探">
+<meta property="og:url" content="http://yoursite.com/2017/02/28/ES6初探/index.html">
+<meta property="og:site_name" content="微胖の君的Blog">
+<meta property="og:description" content="ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。
+也就是说，ES6就是ES2015。
+虽然目前并不是所有浏览器都能兼容ES6全部特性，但越来越多的程序员在实际项目当中已经开始使用ES6了。所以就算你现在不打算使用ES6，但为了看懂别人的你也该懂点ES6的语法了…
+在我们正式讲解ES6">
+<meta property="og:image" content="http://yoursite.com/img/ES6初探-1.jpg">
+<meta property="og:updated_time" content="2017-02-28T17:43:08.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6初探">
+<meta name="twitter:description" content="ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。
+也就是说，ES6就是ES2015。
+虽然目前并不是所有浏览器都能兼容ES6全部特性，但越来越多的程序员在实际项目当中已经开始使用ES6了。所以就算你现在不打算使用ES6，但为了看懂别人的你也该懂点ES6的语法了…
+在我们正式讲解ES6">
+<meta name="twitter:image" content="http://yoursite.com/img/ES6初探-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/28/ES6初探/"/>
+
+
+
+
+
+  <title> ES6初探 | 微胖の君的Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">微胖の君的Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">看起来不胖而已~~~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/28/ES6初探/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="微胖の君">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微胖の君的Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微胖の君的Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6初探
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T18:17:46+08:00">
+                2017-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/img/ES6初探-1.jpg" alt=""><br>ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。</p>
+<p>也就是说，ES6就是ES2015。</p>
+<p>虽然目前并不是所有浏览器都能兼容ES6全部特性，但越来越多的程序员在实际项目当中已经开始使用ES6了。所以就算你现在不打算使用ES6，但为了看懂别人的你也该懂点ES6的语法了…</p>
+<p>在我们正式讲解ES6语法之前，我们得先了解下Babel。<br><a href="https://babeljs.io/" target="_blank" rel="external">Babel</a></p>
+<p>Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。大家可以选择自己习惯的工具来使用使用Babel，具体过程可直接在Babel官网查看。</p>
+<a id="more"></a>
+<h2 id="最常用的ES6特性"><a href="#最常用的ES6特性" class="headerlink" title="最常用的ES6特性"></a>最常用的ES6特性</h2><p><code>let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</code><br>这些是ES6最常用的几个语法，基本上学会它们，我们就可以走遍天下都不怕啦！我会用最通俗易懂的语言和例子来讲解它们，保证一看就懂，一学就会。</p>
+<h3 id="let-const"><a href="#let-const" class="headerlink" title="let, const"></a>let, const</h3><p>这两个的用途与<code>var</code>类似，都是用来声明变量的，但在实际运用中他俩都有各自的特殊用途。<br>首先来看下面这个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'zach'</span></div><div class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">var</span> name = <span class="string">'obama'</span></div><div class="line">    <span class="built_in">console</span>.log(name)  <span class="comment">//obama</span></div><div class="line">    <span class="keyword">break</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(name)  <span class="comment">//obama</span></div></pre></td></tr></table></figure>
+<p>使用<code>var</code>两次输出都是obama，这是因为ES5只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景。第一种场景就是你现在看到的内层变量覆盖外层变量。而<code>let</code>则实际上为JavaScript新增了“块级作用域”。用它所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> name = <span class="string">'zach'</span></div><div class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> name = <span class="string">'obama'</span></div><div class="line">    <span class="built_in">console</span>.log(name)  <span class="comment">//obama</span></div><div class="line">    <span class="keyword">break</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(name)  <span class="comment">//zach</span></div></pre></td></tr></table></figure>
+<p>上面的代码转换为ES5的代码相当于下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> name = <span class="string">'zach'</span>;</div><div class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">var</span> _name = <span class="string">'obama'</span>;</div><div class="line">    <span class="built_in">console</span>.log(_name); <span class="comment">//obama</span></div><div class="line">    <span class="keyword">break</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(name); <span class="comment">//zach</span></div></pre></td></tr></table></figure>
+<p>另外一个<code>var</code>带来的不合理场景就是用来计数的循环变量泄露为全局变量，看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>上面代码中，变量<code>i</code>是<code>var</code>声明的，在全局范围内都有效。所以每一次循环，新的<code>i</code>值都会覆盖旧值，导致最后输出的是最后一轮的<code>i</code>的值。而使用<code>let</code>则不会出现这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p>相当于如下的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">var</span> _loop = <span class="function"><span class="keyword">function</span> <span class="title">_loop</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  _loop(i);</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p>再来看一个更常见的例子，了解下如果不用ES6，而用闭包如何解决这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> clickBoxs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.clickBox'</span>)</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; clickBoxs.length; i++)&#123;</div><div class="line">    clickBoxs[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们本来希望的是点击不同的clickBox，显示不同的<code>i</code>，但事实是无论我们点击哪个clickBox，输出的都是5。下面我们来看下，如何用闭包搞定它。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">iteratorFactory</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> onclick;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> clickBoxs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.clickBox'</span>)</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; clickBoxs.length; i++)&#123;</div><div class="line">    clickBoxs[i].onclick = iteratorFactory(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>const</code>也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> PI = <span class="built_in">Math</span>.PI</div><div class="line">PI = <span class="number">23</span> <span class="comment">//Module build failed: SyntaxError: /es6/app.js: "PI" is read-only</span></div></pre></td></tr></table></figure>
+<p>当我们尝试去改变用<code>const</code>声明的常量时，浏览器就会报错。<br><code>const</code>有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用<code>const</code>来声明可以避免未来不小心重命名而导致出现bug：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> monent = <span class="built_in">require</span>(<span class="string">'moment'</span>)</div></pre></td></tr></table></figure>
+<h3 id="class-extends-super"><a href="#class-extends-super" class="headerlink" title="class, extends, super"></a>class, extends, super</h3><p>这三个特性涉及了ES5中最令人头疼的的几个部分：原型、构造函数，继承…你还在为它们复杂难懂的语法而烦恼吗？你还在为指针到底指向哪里而纠结万分吗？</p>
+<p>有了ES6我们不再烦恼！</p>
+<p>ES6提供了更接近传统语言的写法，引入了Class（类）这个概念。新的<code>class</code>写法让对象原型的写法更加清晰、更像面向对象编程的语法，也更加通俗易懂。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> Animal()</div><div class="line">animal.says(<span class="string">'hello'</span>) <span class="comment">//animal says hello</span></div></pre></td></tr></table></figure>
+<p>上面代码首先用<code>class</code>定义了一个“类”，相当于下面的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> _createClass = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">defineProperties</span>(<span class="params">target, props</span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> descriptor = props[i];</div><div class="line">            descriptor.enumerable = descriptor.enumerable || <span class="literal">false</span>;</div><div class="line">            descriptor.configurable = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="string">"value"</span> <span class="keyword">in</span> descriptor)</div><div class="line">                descriptor.writable = <span class="literal">true</span>;</div><div class="line">            <span class="built_in">Object</span>.defineProperty(target, descriptor.key, descriptor);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">Constructor, protoProps, staticProps</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (protoProps)</div><div class="line">            defineProperties(Constructor.prototype, protoProps);</div><div class="line">        <span class="keyword">if</span> (staticProps)</div><div class="line">            defineProperties(Constructor, staticProps);</div><div class="line">        <span class="keyword">return</span> Constructor;</div><div class="line">    &#125;;</div><div class="line">&#125;();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Cannot call a class as a function"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> Animal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        _classCallCheck(<span class="keyword">this</span>, Animal);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    _createClass(Animal, [&#123;</div><div class="line">        <span class="attr">key</span>: <span class="string">'says'</span>,</div><div class="line">        <span class="attr">value</span>: <span class="function"><span class="keyword">function</span> <span class="title">says</span>(<span class="params">say</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say);</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> Animal;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>
+<p>可以得出，<code>class</code>本质定义了一个构造函数，constructor方法里的内容就是这个构造函数的主体，says方法会被添加进这个构造函数的原型对象里，就像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.type = <span class="string">'animal'</span>;</div><div class="line">&#125;</div><div class="line">Animal.prototype.says = <span class="function"><span class="keyword">function</span> (<span class="params">say</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Class之间可以通过<code>extends</code>关键字实现继承，这比ES5的通过修改原型链实现继承，要清晰和方便很多。下面定义了一个Cat类，该类通过<code>extends</code>关键字，继承了Animal类的所有属性和方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">super</span>()</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'cat'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> Cat()</div><div class="line">cat.says(<span class="string">'hello'</span>) <span class="comment">//cat says hello</span></div></pre></td></tr></table></figure>
+<p>相当于下面的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _createClass = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">defineProperties</span>(<span class="params">target, props</span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> descriptor = props[i];</div><div class="line">            descriptor.enumerable = descriptor.enumerable || <span class="literal">false</span>;</div><div class="line">            descriptor.configurable = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="string">"value"</span> <span class="keyword">in</span> descriptor)</div><div class="line">                descriptor.writable = <span class="literal">true</span>;</div><div class="line">            <span class="built_in">Object</span>.defineProperty(target, descriptor.key, descriptor);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">Constructor, protoProps, staticProps</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (protoProps)</div><div class="line">            defineProperties(Constructor.prototype, protoProps);</div><div class="line">        <span class="keyword">if</span> (staticProps)</div><div class="line">            defineProperties(Constructor, staticProps);</div><div class="line">        <span class="keyword">return</span> Constructor;</div><div class="line">    &#125;;</div><div class="line">&#125;();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_possibleConstructorReturn</span>(<span class="params">self, call</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!self) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">"this hasn't been initialised - super() hasn't been called"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> call &amp;&amp; (<span class="keyword">typeof</span> call === <span class="string">"object"</span> || <span class="keyword">typeof</span> call === <span class="string">"function"</span>) ? call : self;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_inherits</span>(<span class="params">subClass, superClass</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> superClass !== <span class="string">"function"</span> &amp;&amp; superClass !== <span class="literal">null</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Super expression must either be null or a function, not "</span> + <span class="keyword">typeof</span> superClass);</div><div class="line">    &#125;</div><div class="line">    subClass.prototype = <span class="built_in">Object</span>.create(superClass &amp;&amp; superClass.prototype, &#123;</div><div class="line">        <span class="attr">constructor</span>: &#123;</div><div class="line">            <span class="attr">value</span>: subClass,</div><div class="line">            <span class="attr">enumerable</span>: <span class="literal">false</span>,</div><div class="line">            <span class="attr">writable</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">configurable</span>: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">if</span> (superClass)</div><div class="line">        <span class="built_in">Object</span>.setPrototypeOf ? <span class="built_in">Object</span>.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Cannot call a class as a function"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Animal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        _classCallCheck(<span class="keyword">this</span>, Animal);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    _createClass(Animal, [&#123;</div><div class="line">        <span class="attr">key</span>: <span class="string">'says'</span>,</div><div class="line">        <span class="attr">value</span>: <span class="function"><span class="keyword">function</span> <span class="title">says</span>(<span class="params">say</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say);</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> Animal;</div><div class="line">&#125;();</div><div class="line"></div><div class="line"><span class="keyword">var</span> Cat = <span class="function"><span class="keyword">function</span> (<span class="params">_Animal</span>) </span>&#123;</div><div class="line">    _inherits(Cat, _Animal);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        _classCallCheck(<span class="keyword">this</span>, Cat);</div><div class="line"></div><div class="line">        <span class="keyword">var</span> _this = _possibleConstructorReturn(<span class="keyword">this</span>, (Cat.__proto__ || <span class="built_in">Object</span>.getPrototypeOf(Cat)).call(<span class="keyword">this</span>));</div><div class="line"></div><div class="line">        _this.type = <span class="string">'cat'</span>;</div><div class="line">        <span class="keyword">return</span> _this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> Cat;</div><div class="line">&#125;(Animal);</div><div class="line"></div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</div><div class="line">cat.says(<span class="string">'hello'</span>); <span class="comment">//cat says hello</span></div></pre></td></tr></table></figure>
+<p>注意一点，如果父类构造函数有返回值且返回值是一个对象，那么实例化子类的时候将会得到这个返回的对象而不是子类的实例。</p>
+<h3 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h3><p>这个恐怕是ES6最最常用的一个新特性了，用它来写function比原来的写法要简洁清晰很多:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123; </div><div class="line">	<span class="keyword">return</span> i + <span class="number">1</span>; </div><div class="line">&#125; <span class="comment">//ES5</span></div><div class="line">(i) =&gt; i + <span class="number">1</span> <span class="comment">//ES6</span></div></pre></td></tr></table></figure>
+<p>简直是简单的不像话对吧…<br>如果方程比较复杂，则需要用{}把代码包起来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; </div><div class="line">    x++;</div><div class="line">    y--;</div><div class="line">    <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line">(x, y) =&gt; &#123;x++; y--; <span class="keyword">return</span> x+y&#125;</div></pre></td></tr></table></figure>
+<p>除了看上去更简洁以外，arrow function还有一项超级无敌的功能！<br>长期以来，JavaScript语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say)</div><div class="line">        &#125;, <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> animal = <span class="keyword">new</span> Animal()</div><div class="line"> animal.says(<span class="string">'hi'</span>)  <span class="comment">//undefined says hi</span></div></pre></td></tr></table></figure>
+<p>因为setTimeout中的this指向的是全局对象。所以为了让它能够正确的运行，传统的解决方法有两种：</p>
+<p>第一种是将this传给self,再用self来指代this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">says(say)&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(self.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;, <span class="number">1000</span>)</div></pre></td></tr></table></figure>
+<p>第二种方法是用bind(this),即</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">says(say)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(self.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;.bind(<span class="keyword">this</span>), <span class="number">1000</span>)</div></pre></td></tr></table></figure>
+<p>但现在我们有了箭头函数，就不需要这么麻烦了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        setTimeout( <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.type + <span class="string">' says '</span> + say)</div><div class="line">        &#125;, <span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> <span class="keyword">var</span> animal = <span class="keyword">new</span> Animal()</div><div class="line"> animal.says(<span class="string">'hi'</span>)  <span class="comment">//animal says hi</span></div></pre></td></tr></table></figure>
+<p>相当于下面的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> _createClass = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">defineProperties</span>(<span class="params">target, props</span>) </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</div><div class="line">            <span class="keyword">var</span> descriptor = props[i];</div><div class="line">            descriptor.enumerable = descriptor.enumerable || <span class="literal">false</span>;</div><div class="line">            descriptor.configurable = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">if</span> (<span class="string">"value"</span> <span class="keyword">in</span> descriptor)</div><div class="line">                descriptor.writable = <span class="literal">true</span>;</div><div class="line">            <span class="built_in">Object</span>.defineProperty(target, descriptor.key, descriptor);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">Constructor, protoProps, staticProps</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (protoProps)</div><div class="line">            defineProperties(Constructor.prototype, protoProps);</div><div class="line">        <span class="keyword">if</span> (staticProps)</div><div class="line">            defineProperties(Constructor, staticProps);</div><div class="line">        <span class="keyword">return</span> Constructor;</div><div class="line">    &#125;;</div><div class="line">&#125;();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123; </div><div class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123; </div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Cannot call a class as a function"</span>); </div><div class="line">    &#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Animal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        _classCallCheck(<span class="keyword">this</span>, Animal);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.type = <span class="string">'animal'</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    _createClass(Animal, [&#123;</div><div class="line">        <span class="attr">key</span>: <span class="string">'says'</span>,</div><div class="line">        <span class="attr">value</span>: <span class="function"><span class="keyword">function</span> <span class="title">says</span>(<span class="params">say</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(_this.type + <span class="string">' says '</span> + say);</div><div class="line">            &#125;, <span class="number">1000</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> Animal;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>
+<p>使用第一种方法保存了this。当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。<br>并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
+<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>这个东西也是非常有用，当我们要插入大段的html内容到文档中时，传统的写法非常麻烦，所以之前我们通常会引用一些模板工具库，比如mustache等等。</p>
+<p>大家可以先看下面一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#result"</span>).append(</div><div class="line">  <span class="string">"There are &lt;b&gt;"</span> + basket.count + <span class="string">"&lt;/b&gt; "</span> +</div><div class="line">  <span class="string">"items in your basket, "</span> +</div><div class="line">  <span class="string">"&lt;em&gt;"</span> + basket.onSale +</div><div class="line">  <span class="string">"&lt;/em&gt; are on sale!"</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>我们要用一堆的’+’号来连接文本与变量，而使用ES6的新特性模板字符串``后，我们可以直接这么来写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#result"</span>).append(<span class="string">`</span></div><div class="line">  There are &lt;b&gt;<span class="subst">$&#123;basket.count&#125;</span>&lt;/b&gt; items</div><div class="line">   in your basket, &lt;em&gt;<span class="subst">$&#123;basket.onSale&#125;</span>&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure>
+<p>用反引号（`）来标识起始，用${}来引用变量，而且所有的空格和缩进都会被保留在输出之中，是不是非常爽？！</p>
+<h3 id="destructuring"><a href="#destructuring" class="headerlink" title="destructuring"></a>destructuring</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
+<p>看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></div><div class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></div><div class="line"><span class="keyword">let</span> zoo = &#123;<span class="attr">cat</span>: cat, <span class="attr">dog</span>: dog&#125;</div><div class="line"><span class="built_in">console</span>.log(zoo)  <span class="comment">//Object &#123;cat: "ken", dog: "lili"&#125;</span></div></pre></td></tr></table></figure>
+<p>用ES6完全可以像下面这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></div><div class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></div><div class="line"><span class="keyword">let</span> zoo = &#123;cat, dog&#125;</div><div class="line"><span class="built_in">console</span>.log(zoo)  <span class="comment">//Object &#123;cat: "ken", dog: "lili"&#125;</span></div></pre></td></tr></table></figure>
+<p>反过来可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dog = &#123;<span class="attr">type</span>: <span class="string">'animal'</span>, <span class="attr">many</span>: <span class="number">2</span>&#125;</div><div class="line"><span class="keyword">let</span> &#123;type, many&#125; = dog <span class="comment">//花括号里的变量名必须和dog里的属性名一致</span></div><div class="line"><span class="built_in">console</span>.log(type, many)   <span class="comment">//animal 2</span></div></pre></td></tr></table></figure>
+<p>相当于ES5的这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dog = &#123; </div><div class="line">	<span class="attr">type</span>: <span class="string">'animal'</span>, </div><div class="line">	<span class="attr">many</span>: <span class="number">2</span> </div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> type = dog.type,</div><div class="line">    many = dog.many;</div></pre></td></tr></table></figure>
+<h3 id="default-rest"><a href="#default-rest" class="headerlink" title="default, rest"></a>default, rest</h3><p>default很简单，意思就是默认值。大家可以看下面的例子，调用animal()方法时忘了传参数，传统的做法就是加上这一句type = type || ‘cat’来指定默认值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params">type</span>)</span>&#123;</div><div class="line">    type = type || <span class="string">'cat'</span>  </div><div class="line">    <span class="built_in">console</span>.log(type)</div><div class="line">&#125;</div><div class="line">animal()</div></pre></td></tr></table></figure>
+<p>如果用ES6我们而已直接这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params">type = <span class="string">'cat'</span></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(type)</div><div class="line">&#125;</div><div class="line">animal()</div></pre></td></tr></table></figure>
+<p>相当于下面的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> type = <span class="built_in">arguments</span>.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">arguments</span>[<span class="number">0</span>] !== <span class="literal">undefined</span> ? <span class="built_in">arguments</span>[<span class="number">0</span>] : <span class="string">'cat'</span>;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(type);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后一个rest语法也很简单，直接看例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animals</span>(<span class="params">...types</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(types)</div><div class="line">&#125;</div><div class="line">animals(<span class="string">'cat'</span>, <span class="string">'dog'</span>, <span class="string">'fish'</span>) <span class="comment">//["cat", "dog", "fish"]</span></div></pre></td></tr></table></figure>
+<p>相当于下面的ES5代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animals</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> _len = <span class="built_in">arguments</span>.length, types = <span class="built_in">Array</span>(_len), _key = <span class="number">0</span>; _key &lt; _len; _key++) &#123;</div><div class="line">        types[_key] = <span class="built_in">arguments</span>[_key];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(types);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而如果不用ES6的话，我们则得使用ES5的arguments。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是ES6最常用的一些语法，可以说这20%的语法，在ES6的日常使用中占了80%…</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ECMAScript/" rel="tag"># ECMAScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/21/函数表达式中的一些坑/" rel="next" title="函数表达式中的一些坑">
+                <i class="fa fa-chevron-left"></i> 函数表达式中的一些坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="微胖の君" />
+          <p class="site-author-name" itemprop="name">微胖の君</p>
+           
+              <p class="site-description motion-element" itemprop="description">胡编一通，乱写一气</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sakitama" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最常用的ES6特性"><span class="nav-number">1.</span> <span class="nav-text">最常用的ES6特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#let-const"><span class="nav-number">1.1.</span> <span class="nav-text">let, const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-extends-super"><span class="nav-number">1.2.</span> <span class="nav-text">class, extends, super</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arrow-function"><span class="nav-number">1.3.</span> <span class="nav-text">arrow function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-string"><span class="nav-number">1.4.</span> <span class="nav-text">template string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#destructuring"><span class="nav-number">1.5.</span> <span class="nav-text">destructuring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#default-rest"><span class="nav-number">1.6.</span> <span class="nav-text">default, rest</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微胖の君</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
