@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GitHub,Hexo,Coding," />
+  <meta name="keywords" content="渲染,生命周期," />
 
 
 
@@ -87,16 +87,27 @@
 
 
 
-<meta name="description" content="这两天试着搭建了基于Hexo的博客，并将其部署至GitHub，发现访问速度十分感人，原因是GitHub的服务器在国外。于是便想将博客部署至Coding，只是为了绑定自己的域名后更快访问。网上资源都是比较旧的，依葫芦画瓢导致走了不少弯路。写下这篇博文主要是记录下自己配置的过程，让正在看这篇博文的你少遇坑。在这篇文章中，假定你已经成功安装了Node.js和Git，并且知道如何在Coding和GitHu">
+<meta name="description" content="通俗的说，浏览器就是一个展示网页的应用程序，一个网页的主要组件就是描述内容的 html 标签及网页相关的外部资源，比如图片、脚本、样式等。浏览器的工作就是将这些文本化的 html 标签转变为图形展示给用户。
+每一个浏览器都用不同的方法去完成这个任务。但都遵循一个共同的处理流程，如下图：
+
+浏览器第一件事情是下载指定的页面，当我们在输入完一个网址后，浏览器的检索引擎通过网址 url 去定位及下载这个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于Hexo的博客同时部署到GitHub和Coding上">
-<meta property="og:url" content="http://yoursite.com/2016/09/05/基于Hexo的博客同时部署到GitHub和Coding上/index.html">
+<meta property="og:title" content="页面的渲染过程和生命周期">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/页面的生命周期/index.html">
 <meta property="og:site_name" content="微胖の君的Blog">
-<meta property="og:description" content="这两天试着搭建了基于Hexo的博客，并将其部署至GitHub，发现访问速度十分感人，原因是GitHub的服务器在国外。于是便想将博客部署至Coding，只是为了绑定自己的域名后更快访问。网上资源都是比较旧的，依葫芦画瓢导致走了不少弯路。写下这篇博文主要是记录下自己配置的过程，让正在看这篇博文的你少遇坑。在这篇文章中，假定你已经成功安装了Node.js和Git，并且知道如何在Coding和GitHu">
-<meta property="og:updated_time" content="2016-09-05T17:46:10.000Z">
+<meta property="og:description" content="通俗的说，浏览器就是一个展示网页的应用程序，一个网页的主要组件就是描述内容的 html 标签及网页相关的外部资源，比如图片、脚本、样式等。浏览器的工作就是将这些文本化的 html 标签转变为图形展示给用户。
+每一个浏览器都用不同的方法去完成这个任务。但都遵循一个共同的处理流程，如下图：
+
+浏览器第一件事情是下载指定的页面，当我们在输入完一个网址后，浏览器的检索引擎通过网址 url 去定位及下载这个">
+<meta property="og:image" content="http://opeue8j3v.bkt.clouddn.com/page-life-cycle.png">
+<meta property="og:updated_time" content="2017-05-09T04:31:04.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于Hexo的博客同时部署到GitHub和Coding上">
-<meta name="twitter:description" content="这两天试着搭建了基于Hexo的博客，并将其部署至GitHub，发现访问速度十分感人，原因是GitHub的服务器在国外。于是便想将博客部署至Coding，只是为了绑定自己的域名后更快访问。网上资源都是比较旧的，依葫芦画瓢导致走了不少弯路。写下这篇博文主要是记录下自己配置的过程，让正在看这篇博文的你少遇坑。在这篇文章中，假定你已经成功安装了Node.js和Git，并且知道如何在Coding和GitHu">
+<meta name="twitter:title" content="页面的渲染过程和生命周期">
+<meta name="twitter:description" content="通俗的说，浏览器就是一个展示网页的应用程序，一个网页的主要组件就是描述内容的 html 标签及网页相关的外部资源，比如图片、脚本、样式等。浏览器的工作就是将这些文本化的 html 标签转变为图形展示给用户。
+每一个浏览器都用不同的方法去完成这个任务。但都遵循一个共同的处理流程，如下图：
+
+浏览器第一件事情是下载指定的页面，当我们在输入完一个网址后，浏览器的检索引擎通过网址 url 去定位及下载这个">
+<meta name="twitter:image" content="http://opeue8j3v.bkt.clouddn.com/page-life-cycle.png">
 
 
 
@@ -124,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/05/基于Hexo的博客同时部署到GitHub和Coding上/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/09/页面的生命周期/"/>
 
 
 
 
 
-  <title> 基于Hexo的博客同时部署到GitHub和Coding上 | 微胖の君的Blog </title>
+  <title> 页面的渲染过程和生命周期 | 微胖の君的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/05/基于Hexo的博客同时部署到GitHub和Coding上/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/页面的生命周期/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="微胖の君">
@@ -283,7 +294,7 @@
             
             
               
-                基于Hexo的博客同时部署到GitHub和Coding上
+                页面的渲染过程和生命周期
               
             
           </h1>
@@ -298,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-05T17:01:06+08:00">
-                2016-09-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T11:40:04+08:00">
+                2017-05-09
               </time>
             
 
@@ -321,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术栈/" itemprop="url" rel="index">
-                    <span itemprop="name">技术栈</span>
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
                   </a>
                 </span>
 
@@ -356,18 +367,19 @@
       
 
       
-        <p>这两天试着搭建了基于Hexo的博客，并将其部署至GitHub，发现访问速度十分感人，原因是GitHub的服务器在国外。于是便想将博客部署至Coding，只是为了绑定自己的域名后更快访问。<br>网上资源都是比较旧的，依葫芦画瓢导致走了不少弯路。写下这篇博文主要是记录下自己配置的过程，让正在看这篇博文的你少遇坑。在这篇文章中，假定你已经成功安装了Node.js和Git，并且知道如何在Coding和GitHub上新建一个仓库。<br><a id="more"></a><br>1、安装Hexo：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-<p>上面两条命令都是可以的。<br>2、在电脑中建立一个名字叫hexo的文件夹，然后在此文件夹中右键打开Git Bash，执行下面的命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure></p>
-<p>Hexo随后会自动在目标文件夹建立网站所需要的文件，接着输入下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>3、输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server --debug</div></pre></td></tr></table></figure></p>
-<p>在浏览器地址栏输入<code>http://localhost:4000/</code>进行本地查看。<br>4、在GitHub上新建一个仓库，名字为<code>username.github.io</code>，其中username字段是你的GitHub账号的用户名，接着使用下面的命令生成SSH keys：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
-<p><code>your_email@example.com</code>是你注册GitHub的时候使用的邮箱。在你的GitHub账户设置里添加该SSH keys。<br>5、在Coding上新建一个仓库，名字可以随便取，我注册Coding账号时使用的邮箱和注册GitHub账号时使用的邮箱是同一个，这样在往Coding账户设置里添加SSH keys时就可以使用上面第4步生成的那个SSH keys。<br>6、打开hexo文件夹内的_config.yml文件，将最后面的内容修改成如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository:</div><div class="line">    github: https://github.com/innocenceboy/innocenceboy.github.io.git,master</div><div class="line">    coding: https://git.coding.net/innocenceboy/innocenceboy.git,master</div></pre></td></tr></table></figure></p>
-<p>上面两个地址分别是GitHub上的远程仓库地址和Coding上的远程仓库地址。<br>7、如果你不喜欢官网的默认主题，可以通过访问<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a>下载其他主题，我这里使用的是一款名为<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a>的主题，上面有详细的设置教程，在此就不赘述了。<br>8、输入下面的命令用于生成静态文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure></p>
-<p>完整命令为hexo generate。<br>9、输入下面的命令用于将本地文件发布到GitHub和Coding的远程仓库上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>完整命令为hexo deploy，注意执行这一步之前如果你没有使用下面的命令为Git配置好每次提交时所使用的用户名和密码的话就会报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config -g user.name <span class="string">"username"</span></div><div class="line">git config -g user.email <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
-<p>可以按上面进行全局配置，也可以进入新生成的.deploy_git文件夹，在里面打开Git Bash进行局部设置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name <span class="string">"username"</span></div><div class="line">git config user.email <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
-<p>10、经过上面的操作已经能够实现同时将代码发布到GitHub和Coding上的远程仓库去了。我在注册完这次使用的GitHub账户之后发现GitHub Pages是默认开启了，Coding上开启Pages服务非常简单，在此就不赘述了。</p>
+        <p>通俗的说，浏览器就是一个展示网页的应用程序，一个网页的主要组件就是描述内容的 html 标签及网页相关的外部资源，比如图片、脚本、样式等。浏览器的工作就是将这些文本化的 html 标签转变为图形展示给用户。</p>
+<p>每一个浏览器都用不同的方法去完成这个任务。但都遵循一个共同的处理流程，如下图：</p>
+<p><img src="http://opeue8j3v.bkt.clouddn.com/page-life-cycle.png" alt=""></p>
+<p>浏览器第一件事情是下载指定的页面，当我们在输入完一个网址后，浏览器的检索引擎通过网址 url 去定位及下载这个页面，并将这个页面保存到资源缓存中，如果这个页面存在于缓存中，它将跳过下载，而是调用缓存的数据。</p>
+<p>当检索引擎完成一个页面的下载，浏览器会快速的解析 html 标签，并发现跟页面相关的外部资源，如图片，css 或者其它的多媒体。检索引擎然后在去下载这些外部资源。</p>
+<p>检索引擎下载外部资源的时候，浏览器开始解析网页的 html 标签，并建立一个 DOM 树。此时，基于文本的 html 标签变成了可以被浏览器操控的对象。</p>
+<p>浏览器之后开始解析 css 样式及定义在 html 标签相关联的样式，并且创建一个样式对象，styleobject。这个样式对象被用来确定浏览器如何显示一个网页。</p>
+<p>当有了 DOM tree 及样式对象后，浏览器开始建立一个渲染树。渲染树有的时候跟 DOM 树是有不同的，因为有的 DOM 项因为 css 设置为不显示。那么这些项将不会出现在渲染树里面，而只会在 DOM 里面。并且这些项不会出现在浏览器的下一步处理中。</p>
+<p>现在浏览器开始 flow，这个过程是由浏览器的定位引擎计算每个 DOM 项的大小及相对于整个页面的位置。当这个过程处理完时，所有的 DOM 项被定位好了，最终整个页面的布局也就好了。 </p>
+<p>最后一步是显示整个页面，这个工作是浏览器的绘画引擎完成，显示整个最终的效果。也可以称为 paint。</p>
+<p>此时页面加载完成，触发 load 事件。</p>
+<p>可是，整个过程并不是这么简单。当一个页面被渲染完成。浏览器将会进入到事件循环，浏览器开始等待某些事情的发生。我们可以称为 event。每一个事件可能来至用户的点击或者重置浏览器窗口的大小。当浏览器捕获到一个事件，而这个事件是影响整个页面的布局，浏览器会重新做 reflow, repaint 的过程。更新整个页面的布局。reflow 一定会引起 repaint，repaint 不一定会引起 reflow。</p>
+<p>当卸载页面的时候，会触发 unload 事件。</p>
 
       
     </div>
@@ -391,11 +403,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+            <a href="/tags/渲染/" rel="tag"># 渲染</a>
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-            <a href="/tags/Coding/" rel="tag"># Coding</a>
+            <a href="/tags/生命周期/" rel="tag"># 生命周期</a>
           
         </div>
       
@@ -408,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/05/二维数组变成一维数组/" rel="next" title="二维数组变成一维数组">
-                <i class="fa fa-chevron-left"></i> 二维数组变成一维数组
+              <a href="/2017/04/03/Understanding-flexbox/" rel="next" title="Understanding flexbox">
+                <i class="fa fa-chevron-left"></i> Understanding flexbox
               </a>
             
           </div>
@@ -417,10 +427,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/06/document-getElementById引用被修改/" rel="prev" title="document.getElementById引用被修改">
-                document.getElementById引用被修改 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
