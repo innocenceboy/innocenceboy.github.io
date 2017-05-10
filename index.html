@@ -260,6 +260,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/有getMin功能的栈/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="微胖の君">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="微胖の君的Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="微胖の君的Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/10/有getMin功能的栈/" itemprop="url">
+                  有getMin功能的栈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T00:42:51+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="要求："><a href="#要求：" class="headerlink" title="要求："></a>要求：</h1><ol>
+<li>pop、push、getMin操作的时间复杂度都是O(1)。</li>
+<li>设计的栈类型可以使用现成的栈结构。</li>
+</ol>
+<h1 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h1><p>在设计上使用两个栈，以空间换时间，一个栈用来保存当前栈中的元素，其功能和一个正常的栈没有区别，这个栈记为stackData；另一个栈用于保存每一次pop或push之后的最小值，记为stackMin。</p>
+<h2 id="压入数据规则"><a href="#压入数据规则" class="headerlink" title="压入数据规则"></a>压入数据规则</h2><p>假设当前数据为newNum，先将其压入stackData，然后判断stackMin是否为空：</p>
+<p>=&gt;如果为空，则newNum也压入stackMin。<br>=&gt;如果不为空，则比较newNum和stackMin的栈顶元素的大小。<br>==&gt;如果newNum小于等于stackMin的栈顶元素，则newNum也压入stackMin。<br>==&gt;如果newNum大于stackMin的栈顶元素，stackMin不压入任何内容。    </p>
+<h2 id="弹出数据规则"><a href="#弹出数据规则" class="headerlink" title="弹出数据规则"></a>弹出数据规则</h2><p>先在stackData中弹出栈顶元素，记为value，然后比较当前stackMin的栈顶元素和value哪一个更小。</p>
+<p>通过压入规则可知，stackMin中存在的元素是从栈底到栈顶逐渐变小的，stackMin栈顶的元素既是当前stackMin栈的最小值，也是当前stackData栈的最小值。所以value只可能大于或者等于stackMin的栈顶元素。</p>
+<p>=&gt;如果value等于stackMin栈顶元素，那么stackMin弹出栈顶元素。<br>=&gt;如果value大于stackMin栈顶元素，那么stackMin不弹出栈顶元素，返回value。</p>
+<p>所有说，每一次pop和push之后stackMin中的栈顶元素始终是当前stackData中的最小值。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> stackData = [];</div><div class="line"><span class="keyword">let</span> stackMin = [];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pop</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果数组为空，执行弹出则报错</span></div><div class="line">	<span class="keyword">if</span> (stackData.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Your stack is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 取出弹出的值</span></div><div class="line">	<span class="keyword">let</span> value = stackData.pop();</div><div class="line">	<span class="comment">// value只可能大于等于stackMin栈顶元素，如果value等于stackMin栈顶元素，则将stackMin栈顶元素弹出，大于则啥也不做</span></div><div class="line">	<span class="keyword">if</span> (value === stackMin[stackMin.length - <span class="number">1</span>]) &#123;</div><div class="line">		stackMin.pop();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 返回弹出的值</span></div><div class="line">	<span class="keyword">return</span> value;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">newNum</span>) </span>&#123;</div><div class="line">	stackData.push(newNum);</div><div class="line">	<span class="comment">// 如果stackMin为空，newNum压入stackMin</span></div><div class="line">	<span class="keyword">if</span> (stackMin.length === <span class="number">0</span>) &#123;</div><div class="line">		stackMin.push(newNum);</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (newNum &lt;= stackMin[stackMin.length - <span class="number">1</span>]) &#123; <span class="comment">// 如果newNum小于等于stackMin栈顶元素，newNum压入stackMin</span></div><div class="line">		stackMin.push(newNum);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMin</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果stackData为空，则stackMin一定也为空</span></div><div class="line">	<span class="keyword">if</span> (stackData.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Your stack is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> stackMin[stackMin.length - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="第二种解法"><a href="#第二种解法" class="headerlink" title="第二种解法"></a>第二种解法</h1><p>在设计上使用两个栈，以空间换时间，一个栈用来保存当前栈中的元素，其功能和一个正常的栈没有区别，这个栈记为stackData；另一个栈用于保存每一次pop或push之后的最小值，记为stackMin。</p>
+<h2 id="压入数据规则-1"><a href="#压入数据规则-1" class="headerlink" title="压入数据规则"></a>压入数据规则</h2><p>假设当前数据为newNum，先将其压入stackData，然后判断stackMin是否为空：</p>
+<p>=&gt;如果为空，则newNum也压入stackMin。<br>=&gt;如果不为空，则比较newNum和stackMin的栈顶元素的大小。<br>==&gt;如果newNum小于等于stackMin的栈顶元素，则newNum也压入stackMin。<br>==&gt;如果newNum大于stackMin的栈顶元素，stackMin将当前栈顶元素重复压入。    </p>
+<h2 id="弹出数据规则-1"><a href="#弹出数据规则-1" class="headerlink" title="弹出数据规则"></a>弹出数据规则</h2><p>先在stackData中弹出栈顶元素，记为value，接着弹出stackMin的栈顶元素，返回value。</p>
+<p>所有说，每一次pop和push之后stackMin中的栈顶元素始终是当前stackData中的最小值。</p>
+<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> stackData = [];</div><div class="line"><span class="keyword">let</span> stackMin = [];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pop</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果数组为空，执行弹出则报错</span></div><div class="line">	<span class="keyword">if</span> (stackData.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Your stack is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	stackMin.pop();</div><div class="line">	<span class="keyword">return</span> stackData.pop();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">newNum</span>) </span>&#123;</div><div class="line">	stackData.push(newNum);</div><div class="line">	<span class="comment">// 如果stackMin为空，newNum压入stackMin</span></div><div class="line">	<span class="keyword">if</span> (stackMin.length === <span class="number">0</span>) &#123;</div><div class="line">		stackMin.push(newNum);</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (newNum &lt;= stackMin[stackMin.length - <span class="number">1</span>]) &#123; <span class="comment">// 如果newNum小于等于stackMin栈顶元素，newNum压入stackMin</span></div><div class="line">		stackMin.push(newNum);</div><div class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">//  如果newNum大于stackMin的栈顶元素，stackMin的栈顶元素压入stackMin</span></div><div class="line">		stackMin.push(stackMin[stackMin.length - <span class="number">1</span>]);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMin</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">// 如果stackData为空，则stackMin一定也为空</span></div><div class="line">	<span class="keyword">if</span> (stackData.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Your stack is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> stackMin[stackMin.length - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/npm-scripts/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1633,155 +1792,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/14/该不该使用new操作符？/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="微胖の君">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="微胖の君的Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="微胖の君的Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/14/该不该使用new操作符？/" itemprop="url">
-                  该不该使用new操作符？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-14T17:01:34+08:00">
-                2016-09-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习JavaScript过程中遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">学习JavaScript过程中遇到的问题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</div><div class="line"><span class="built_in">console</span>.log(f); <span class="comment">//String &#123; 0="f",  1="o",  2="o"&#125;</span></div><div class="line"><span class="built_in">console</span>.log(f <span class="keyword">instanceof</span> <span class="built_in">String</span>); <span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>使用new操作符调用String()构造函数将会返回一个对象。不使用new的情况如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="built_in">String</span>(<span class="string">"foo"</span>);</div><div class="line"><span class="built_in">console</span>.log(f); <span class="comment">//foo</span></div><div class="line"><span class="built_in">console</span>.log(f <span class="keyword">instanceof</span> <span class="built_in">String</span>); <span class="comment">//false</span></div></pre></td></tr></table></figure></p>
-<p>可以看到，不使用new操作符调用String()构造函数返回的只是一个原始值而不是一个对象。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/14/该不该使用new操作符？/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1831,7 +1841,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1840,7 +1850,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1849,7 +1859,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
