@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,19 +87,34 @@
 
 
 
-<meta name="description" content="1234var s  = function a() &amp;#123;&amp;#125;;var d = new s();console.log(d instanceof s);//trueconsole.log(d instanceof a);//ReferenceError: a is not defined console.log(d instanceof a);
-1234var s  = functi">
+<meta name="description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+
+算法tags:
+栈
+队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数表达式中的一些坑">
-<meta property="og:url" content="http://yoursite.com/2017/02/21/函数表达式中的一些坑/index.html">
+<meta property="og:title" content="微胖の君的Blog">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/用两个栈实现一个队列，支持队列的add、poll、peek/index.html">
 <meta property="og:site_name" content="微胖の君的Blog">
-<meta property="og:description" content="1234var s  = function a() &amp;#123;&amp;#125;;var d = new s();console.log(d instanceof s);//trueconsole.log(d instanceof a);//ReferenceError: a is not defined console.log(d instanceof a);
-1234var s  = functi">
-<meta property="og:updated_time" content="2016-09-14T09:00:02.000Z">
+<meta property="og:description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+
+算法tags:
+栈
+队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
+<meta property="og:updated_time" content="2017-05-10T04:31:15.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数表达式中的一些坑">
-<meta name="twitter:description" content="1234var s  = function a() &amp;#123;&amp;#125;;var d = new s();console.log(d instanceof s);//trueconsole.log(d instanceof a);//ReferenceError: a is not defined console.log(d instanceof a);
-1234var s  = functi">
+<meta name="twitter:title" content="微胖の君的Blog">
+<meta name="twitter:description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+
+算法tags:
+栈
+队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
 
 
 
@@ -127,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/21/函数表达式中的一些坑/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/10/用两个栈实现一个队列，支持队列的add、poll、peek/"/>
 
 
 
 
 
-  <title> 函数表达式中的一些坑 | 微胖の君的Blog </title>
+  <title>  | 微胖の君的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/21/函数表达式中的一些坑/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/用两个栈实现一个队列，支持队列的add、poll、peek/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="微胖の君">
@@ -286,7 +301,7 @@
             
             
               
-                函数表达式中的一些坑
+                
               
             
           </h1>
@@ -301,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T16:16:17+08:00">
-                2017-02-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T11:46:40+08:00">
+                2017-05-10
               </time>
             
 
@@ -311,28 +326,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习JavaScript过程中遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">学习JavaScript过程中遇到的问题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -359,14 +352,20 @@
       
 
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s  = <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> s();</div><div class="line"><span class="built_in">console</span>.log(d <span class="keyword">instanceof</span> s);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(d <span class="keyword">instanceof</span> a);<span class="comment">//ReferenceError: a is not defined console.log(d instanceof a);</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s  = <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);</div><div class="line">&#125;;</div><div class="line">s(); <span class="comment">//function</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>在上面的命名函数表达式中，函数名只能在其函数体内才能访问得到。<br>接下来再看一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(s);</div><div class="line">    &#125;;</div><div class="line">&#125;)();</div><div class="line">s(); <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
-<p>为什么结果是1？按道理不应该是输出s函数吗？太天真了，这里说明将一个匿名函数的引用传递给一个变量和实实在在的具名函数是不一样的，再做个试验，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> s = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(s);</div><div class="line">    &#125;;</div><div class="line">&#125;)();</div><div class="line">s(); <span class="comment">//s()</span></div></pre></td></tr></table></figure></p>
-<p>将返回的函数具名了，在这样的情况下结果为函数本身。高程P176有讲到，匿名函数的name属性为空，也就是说，如果将函数比作一个人，那么具名函数就是有真名的人，而匿名函数就是没有真名的人，但可以有很多个假名字，就像上面那个例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(s);</div><div class="line">&#125;;</div><div class="line">s(); <span class="comment">//function()</span></div></pre></td></tr></table></figure></p>
-<p>最后总结一下，其实整个过程还是标识符解析，第一个例子中，首先会在函数体作用域内查找有没有变量s，没有找到，再看该函数是否有真名s，没有真名，继续在IIFE作用域里寻找，找到了s变量，值为1。第二个例子过程大致相同，首先会在函数体作用域内查找有没有变量s，没有找到，再看该函数是否有真名s，发现有真名，且为s，于是输出s()函数。第三个例子也一样，首先会在函数体作用域内查找有没有变量s，没有找到，再看该函数是否有真名s，没有，继续在全局作用域中寻找有没有s变量，发现有，值为一个匿名函数的引用，于是输出这个匿名函数function()。再看一个例子，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(s);</div><div class="line">&#125;;</div><div class="line">s(); <span class="comment">//d()</span></div></pre></td></tr></table></figure></p>
-<p>上面这个例子首先会在函数体作用域内查找有没有变量s，没有找到，再看该函数是否有真名s，发现有真名，但是不是s，于是继续在全局作用域中寻找有没有s变量，发现有，值为一个具名函数的引用，于是输出这个具名函数d()。</p>
+        <hr>
+<p>title: 用两个栈实现一个队列，支持队列的add、poll、peek<br>date: 2017-05-10 11:46:40<br>categories:</p>
+<ul>
+<li>算法<br>tags:</li>
+<li>栈</li>
+<li>队列<br>—栈中<br>用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。</li>
+</ul>
+<p>队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把stackPush中的数据弹出再压入stackPop中，顺序就变回来了。</p>
+<p>不过需要注意两点：</p>
+<ol>
+<li>如果stackPush需要往stackPop中压入数据，那么必须一次性把stackPush中的数据全部弹出和压入stackPop。</li>
+<li>如果stackPop不为空，那么stackPush绝对不能向stackPop中压入数据，否则导致顺序错乱。</li>
+</ol>
+<p>代码实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> stackPush = [];</div><div class="line"><span class="keyword">let</span> stackPop = [];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">	stackPush.push(data);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">poll</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (stackPush.length === <span class="number">0</span> &amp;&amp; stackPop.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'your queue is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 如果stackPop为空，则把stackPush中的元素全部弹出并压入到stackPop中</span></div><div class="line">	<span class="keyword">if</span> (stackPop.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">while</span> (!(stackPush.length === <span class="number">0</span>)) &#123;</div><div class="line">			stackPop.push(stackPush.pop());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 弹出并返回队列首部元素</span></div><div class="line">	<span class="keyword">return</span> stackPop.pop();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">peek</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (stackPush.length === <span class="number">0</span> &amp;&amp; stackPop.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'your queue is empty!'</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (stackPop.length === <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">while</span> (!(stackPush.length === <span class="number">0</span>)) &#123;</div><div class="line">			stackPop.push(stackPush.pop());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 返回队列首部元素</span></div><div class="line">	<span class="keyword">return</span> stackPop[stackPop.length - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -388,12 +387,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-        </div>
-      
 
       
         
@@ -403,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/27/理解viewport/" rel="next" title="理解viewport">
-                <i class="fa fa-chevron-left"></i> 理解viewport
+              <a href="/2017/05/10/有getMin功能的栈/" rel="next" title="有getMin功能的栈">
+                <i class="fa fa-chevron-left"></i> 有getMin功能的栈
               </a>
             
           </div>
@@ -412,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/28/ES6初探/" rel="prev" title="ES6初探">
-                ES6初探 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
