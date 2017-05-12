@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="栈,队列," />
 
 
 
@@ -87,34 +87,28 @@
 
 
 
-<meta name="description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+<meta name="description" content="用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把stackPush中的数据弹出再压入stackPop中，顺序就变回来了。
+不过需要注意两点：
 
-算法tags:
-栈
-队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
-
-队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
+如果stackPush需要往stackPop中压入数据，那么必须一次性把stackPush">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微胖の君的Blog">
+<meta property="og:title" content="用两个栈实现一个队列，支持队列的add、poll、peek">
 <meta property="og:url" content="http://yoursite.com/2017/05/10/用两个栈实现一个队列，支持队列的add、poll、peek/index.html">
 <meta property="og:site_name" content="微胖の君的Blog">
-<meta property="og:description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+<meta property="og:description" content="用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把stackPush中的数据弹出再压入stackPop中，顺序就变回来了。
+不过需要注意两点：
 
-算法tags:
-栈
-队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
-
-队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
-<meta property="og:updated_time" content="2017-05-10T04:31:15.086Z">
+如果stackPush需要往stackPop中压入数据，那么必须一次性把stackPush">
+<meta property="og:updated_time" content="2017-05-11T08:52:05.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微胖の君的Blog">
-<meta name="twitter:description" content="title: 用两个栈实现一个队列，支持队列的add、poll、peekdate: 2017-05-10 11:46:40categories:
+<meta name="twitter:title" content="用两个栈实现一个队列，支持队列的add、poll、peek">
+<meta name="twitter:description" content="用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
+队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把stackPush中的数据弹出再压入stackPop中，顺序就变回来了。
+不过需要注意两点：
 
-算法tags:
-栈
-队列—栈中用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。
-
-队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把st">
+如果stackPush需要往stackPop中压入数据，那么必须一次性把stackPush">
 
 
 
@@ -148,7 +142,7 @@
 
 
 
-  <title>  | 微胖の君的Blog </title>
+  <title> 用两个栈实现一个队列，支持队列的add、poll、peek | 微胖の君的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -301,7 +295,7 @@
             
             
               
-                
+                用两个栈实现一个队列，支持队列的add、poll、peek
               
             
           </h1>
@@ -326,6 +320,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -352,13 +368,7 @@
       
 
       
-        <hr>
-<p>title: 用两个栈实现一个队列，支持队列的add、poll、peek<br>date: 2017-05-10 11:46:40<br>categories:</p>
-<ul>
-<li>算法<br>tags:</li>
-<li>栈</li>
-<li>队列<br>—栈中<br>用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。</li>
-</ul>
+        <p>用一个栈作为压入栈，在压入数据时只往这个栈中压入，记为stackPush；另一个栈只作为弹出栈，在弹出数据时只从这个栈弹出，记为stackPop。</p>
 <p>队列是先进先出的，而数据压入栈的时候，顺序是先进后出的，那么只要把stackPush中的数据弹出再压入stackPop中，顺序就变回来了。</p>
 <p>不过需要注意两点：</p>
 <ol>
@@ -386,6 +396,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/栈/" rel="tag"># 栈</a>
+          
+            <a href="/tags/队列/" rel="tag"># 队列</a>
+          
+        </div>
       
 
       
@@ -471,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -480,7 +498,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -489,7 +507,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
