@@ -371,6 +371,14 @@
 <li>当原栈不空，每次从原栈弹出一个元素，用temp保存，从临时栈的栈顶到栈底进行比较，如果temp小于某个元素，则将temp插入到这个元素后面。如果遍历完整个临时栈都没有找到比temp大的元素，则将temp放到临时栈的栈底。此时临时栈中的元素栈顶到栈底按从小到大排列。</li>
 <li>将临时栈的元素全部弹出再压入原栈，此时原栈中的元素栈顶到栈底按从大到小排列。</li>
 </ol>
+<p>另一种方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortStackByStack</span>(<span class="params">stack</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (stack.length === <span class="number">0</span> || stack.length === <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> stack;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> helpStack = [];</div><div class="line">    <span class="keyword">while</span> (stack.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">let</span> temp = stack.pop();</div><div class="line">        <span class="keyword">while</span> (helpStack.length &gt; <span class="number">0</span> &amp;&amp; helpStack[helpStack.length - <span class="number">1</span>] &lt; temp) &#123;</div><div class="line">            stack.push(helpStack.pop());</div><div class="line">        &#125;</div><div class="line">        helpStack.push(temp);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (helpStack.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        stack.push(helpStack.pop());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主要思路：</p>
+<ol>
+<li>每次从原栈中弹出一个值并用temp保存，如果临时栈为空，则直接压入temp；如果不为空，则将temo与临时栈栈顶元素比较。</li>
+<li>如果temp小于或者等于临时栈栈顶元素，则直接将temp压入临时栈；如果temp大于临时栈栈顶元素，则将临时栈的元素逐一弹出并压入原栈，直到temp小于或者等于临时栈的栈顶元素，再将temp压入临时栈。</li>
+<li>此时临时栈中的元素栈顶到栈底按从小到大排列。将临时栈的元素全部弹出再压入原栈，此时原栈中的元素栈顶到栈底按从大到小排列。</li>
+</ol>
 
           
         

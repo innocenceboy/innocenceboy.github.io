@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="微胖の君的Blog">
 <meta property="og:description" content="题目：一个栈中的元素为整型，现在想将该栈从顶到底按从大到小的顺序排序，只许申请一个栈。除此之外，可以申请新的变量，但不能申请额外的数据结构。如何完成排序？
 123456789101112131415161718192021222324function sortStackByStack(stack) &amp;#123;    if (stack.length === 0 || stack.length =">
-<meta property="og:updated_time" content="2017-05-12T16:00:46.463Z">
+<meta property="og:updated_time" content="2017-05-12T16:21:53.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用一个栈实现另一个栈的排序">
 <meta name="twitter:description" content="题目：一个栈中的元素为整型，现在想将该栈从顶到底按从大到小的顺序排序，只许申请一个栈。除此之外，可以申请新的变量，但不能申请额外的数据结构。如何完成排序？
@@ -367,6 +367,14 @@
 <li>把原栈中的栈顶元素弹出并压入临时栈。</li>
 <li>当原栈不空，每次从原栈弹出一个元素，用temp保存，从临时栈的栈顶到栈底进行比较，如果temp小于某个元素，则将temp插入到这个元素后面。如果遍历完整个临时栈都没有找到比temp大的元素，则将temp放到临时栈的栈底。此时临时栈中的元素栈顶到栈底按从小到大排列。</li>
 <li>将临时栈的元素全部弹出再压入原栈，此时原栈中的元素栈顶到栈底按从大到小排列。</li>
+</ol>
+<p>另一种方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortStackByStack</span>(<span class="params">stack</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (stack.length === <span class="number">0</span> || stack.length === <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> stack;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> helpStack = [];</div><div class="line">    <span class="keyword">while</span> (stack.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">let</span> temp = stack.pop();</div><div class="line">        <span class="keyword">while</span> (helpStack.length &gt; <span class="number">0</span> &amp;&amp; helpStack[helpStack.length - <span class="number">1</span>] &lt; temp) &#123;</div><div class="line">            stack.push(helpStack.pop());</div><div class="line">        &#125;</div><div class="line">        helpStack.push(temp);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (helpStack.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        stack.push(helpStack.pop());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主要思路：</p>
+<ol>
+<li>每次从原栈中弹出一个值并用temp保存，如果临时栈为空，则直接压入temp；如果不为空，则将temo与临时栈栈顶元素比较。</li>
+<li>如果temp小于或者等于临时栈栈顶元素，则直接将temp压入临时栈；如果temp大于临时栈栈顶元素，则将临时栈的元素逐一弹出并压入原栈，直到temp小于或者等于临时栈的栈顶元素，再将temp压入临时栈。</li>
+<li>此时临时栈中的元素栈顶到栈底按从小到大排列。将临时栈的元素全部弹出再压入原栈，此时原栈中的元素栈顶到栈底按从大到小排列。</li>
 </ol>
 
       
