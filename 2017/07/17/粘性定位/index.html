@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="12345var array = [[1, 2, 3], 4, 5, [6, 7, 8]];var resultA = Array.prototype.concat.apply([], array);var resultB = [].concat(array);console.log(resultA); //[1, 2, 3, 4, 5, 6, 7, 8]console.log(resultB);">
+<meta name="description" content="先放一个 demo：
+12345678910111213&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html style=&quot;margin: 0;&quot; lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;sticky&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body style=&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二维数组变成一维数组">
-<meta property="og:url" content="http://yoursite.com/2016/09/05/二维数组变成一维数组/index.html">
+<meta property="og:title" content="粘性定位">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/粘性定位/index.html">
 <meta property="og:site_name" content="微胖の君的Blog">
-<meta property="og:description" content="12345var array = [[1, 2, 3], 4, 5, [6, 7, 8]];var resultA = Array.prototype.concat.apply([], array);var resultB = [].concat(array);console.log(resultA); //[1, 2, 3, 4, 5, 6, 7, 8]console.log(resultB);">
-<meta property="og:updated_time" content="2016-09-04T17:35:24.000Z">
+<meta property="og:description" content="先放一个 demo：
+12345678910111213&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html style=&quot;margin: 0;&quot; lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;sticky&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body style=&quot;">
+<meta property="og:updated_time" content="2017-07-17T13:02:28.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二维数组变成一维数组">
-<meta name="twitter:description" content="12345var array = [[1, 2, 3], 4, 5, [6, 7, 8]];var resultA = Array.prototype.concat.apply([], array);var resultB = [].concat(array);console.log(resultA); //[1, 2, 3, 4, 5, 6, 7, 8]console.log(resultB);">
+<meta name="twitter:title" content="粘性定位">
+<meta name="twitter:description" content="先放一个 demo：
+12345678910111213&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html style=&quot;margin: 0;&quot; lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;sticky&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body style=&quot;">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/05/二维数组变成一维数组/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/17/粘性定位/"/>
 
 
 
 
 
-  <title> 二维数组变成一维数组 | 微胖の君的Blog </title>
+  <title> 粘性定位 | 微胖の君的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/05/二维数组变成一维数组/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/粘性定位/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="微胖の君">
@@ -283,7 +286,7 @@
             
             
               
-                二维数组变成一维数组
+                粘性定位
               
             
           </h1>
@@ -298,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-05T01:03:37+08:00">
-                2016-09-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T21:01:42+08:00">
+                2017-07-17
               </time>
             
 
@@ -321,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习JavaScript过程中遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">学习JavaScript过程中遇到的问题</span>
+                  <a href="/categories/面试题系列/" itemprop="url" rel="index">
+                    <span itemprop="name">面试题系列</span>
                   </a>
                 </span>
 
@@ -356,9 +359,11 @@
       
 
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]];</div><div class="line"><span class="keyword">var</span> resultA = <span class="built_in">Array</span>.prototype.concat.apply([], array);</div><div class="line"><span class="keyword">var</span> resultB = [].concat(array);</div><div class="line"><span class="built_in">console</span>.log(resultA); <span class="comment">//[1, 2, 3, 4, 5, 6, 7, 8]</span></div><div class="line"><span class="built_in">console</span>.log(resultB); <span class="comment">//[[1, 2, 3], 4, 5, [6, 7, 8]]</span></div></pre></td></tr></table></figure>
-<p>考察apply()的用法。apply()接收一个参数数组，这个数组里面存放的是将要用于运算的参数，于是可以认为apply()“去掉”了这个参数数组的“壳”，所以说第2行代码等同于：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> resultA = [].concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]);</div></pre></td></tr></table></figure></p>
-<p>第3行代码等同于：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> resultB = [].concat([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]]);</div></pre></td></tr></table></figure></p>
+        <p>先放一个 demo：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">style</span>=<span class="string">"margin: 0;"</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>sticky<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 0; height: 5000px;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 600px; height: 2000px; background: green; margin: 0 auto;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position: sticky; top: 0; width: 600px; height: 100px; background: red; margin: 20px auto; padding: 20px; border: 10px black solid;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 600px; height: 2000px; background: blue; margin: 0 auto;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>position: sticky</code>称作粘性定位，粘性定位是相对定位和固定定位的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。</p>
+<p>使用它仅仅只需要两行代码，就可以完成以前需要 JavaScript 才能实现的“滚动到目标元素时 fixed 在顶部”，代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">position: sticty;</div><div class="line">top: 0;</div></pre></td></tr></table></figure></p>
+<p>表示当浏览器 viewport 顶部离目标元素的顶部（不考虑 margin，元素的范围只包括 content，padding 和 border）距离小于0之前，元素是相对定位。之后，元素是 fixed 定位。视觉上就是浏览器 viewport 顶部离元素顶部的距离等于0的时候，元素就固定在浏览器 viewport 顶部了。</p>
 
       
     </div>
@@ -382,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -395,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/04/给定两个字符串判断它们是否可以彼此置换/" rel="next" title="给定两个字符串判断它们是否可以彼此置换">
-                <i class="fa fa-chevron-left"></i> 给定两个字符串判断它们是否可以彼此置换
+              <a href="/2017/07/17/清除浮动方法总结/" rel="next" title="清除浮动方法总结">
+                <i class="fa fa-chevron-left"></i> 清除浮动方法总结
               </a>
             
           </div>
@@ -404,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/05/基于Hexo的博客同时部署到GitHub和Coding上/" rel="prev" title="基于Hexo的博客同时部署到GitHub和Coding上">
-                基于Hexo的博客同时部署到GitHub和Coding上 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
