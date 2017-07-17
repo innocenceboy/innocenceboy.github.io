@@ -99,7 +99,7 @@
 123456789101112131415161718192021222324252627282930313233&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;">
 <meta property="og:image" content="https://segmentfault.com/img/bVqGlX">
 <meta property="og:image" content="https://segmentfault.com/img/bVqGlY">
-<meta property="og:updated_time" content="2017-07-17T12:56:08.082Z">
+<meta property="og:updated_time" content="2017-07-17T13:07:22.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除浮动方法总结">
 <meta name="twitter:description" content="在开发网页的时候经常需要用到各种浮动，此时便需要及时地清除浮动，否则将会导致布局出现问题。
@@ -395,6 +395,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">    content: "."; </div><div class="line">    display: block; </div><div class="line">    height: 0; </div><div class="line">    visibility: hidden; </div><div class="line">    clear: both; </div><div class="line">&#125;</div><div class="line">.clearfix &#123;</div><div class="line">    *zoom: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>BFC，CSS3 中称作 <a href="https://www.w3.org/TR/css3-box/#block-level0" target="_blank" rel="external">flow root</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">A flow root is a box that satisfies at least one of the following:</div><div class="line">The value of ‘<span class="built_in">float</span>’ is not ‘none’.</div><div class="line">The used value of ‘overflow’ is not ‘visible’.</div><div class="line">The value of ‘display’ is ‘table-cell’, ‘table-caption’ (see [CSS3TBL]), ‘inline-block’ or ‘inline-table’.</div><div class="line">The value of ‘position’ is neither ‘static’ nor ‘relative’ (see [CSS3POS]).</div><div class="line">The value of ‘block-progression’ is ‘lr’ or ‘rl’ and the value of ‘block-progression’ of its parent box is ‘tb’</div><div class="line">The value of ‘block-progression’ is ‘tb’ and the value of ‘block-progression’ of its parent box is ‘lr’ or ‘rl’.</div></pre></td></tr></table></figure>
+<p>其实还有很多种方法，比如给父元素定高（治标不治本，设定父元素高度为浮动子元素的高度，看上去好像父元素包裹了子元素一样，其实浮动并未清除，父元素高度小于浮动子元素高度，子元素还是会“跑出来”），让父元素处于绝对定位等等。</p>
 <p>参考资料：<br><a href="http://www.positioniseverything.net/easyclearing.html" target="_blank" rel="external">How To Clear Floats Without Structural Markup</a><br><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">那些年我们一起清除过的浮动</a></p>
 
       
